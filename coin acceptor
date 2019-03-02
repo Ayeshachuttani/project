@@ -1,0 +1,36 @@
+//void dispach();
+
+volatile int rupee = 0;
+const int a=5;
+void coin();
+void setup() {
+  // put your setup code here, to run once:
+//Serial.begin(9600);
+pinMode(a,OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+attachInterrupt(0,coin,RISING);
+if (rupee==10)
+{
+  //Serial.println("if");
+  digitalWrite(a,HIGH);
+  delay(1000);
+  digitalWrite(a,LOW);
+  rupee = 0 ;
+}
+}
+void coin()
+{
+  //Serial.println(rupee);
+  rupee=rupee+5;
+  //Serial.println(rupee);
+  //if(rupee== 15)
+  //{
+  // digitalWrite(a,HIGH) ;
+   //Serial.print("collect");
+  // rupee=0;
+  
+//}
+}
