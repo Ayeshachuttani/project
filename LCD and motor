@@ -1,0 +1,53 @@
+#include <Wire.h>
+#include <LiquidCrystal.h>
+const int b=9;
+LiquidCrystal lcd(12,11,5,4,3,2);
+const int cwk=7;
+const int acwk=8;
+void setup() {
+  // put your setup code here, to run once:
+pinMode(b,INPUT);
+pinMode(cwk,OUTPUT);
+pinMode(acwk,OUTPUT);
+lcd.begin(16,2);
+lcd.clear();
+lcd.println("Insert Rs.5 coin");
+lcd.setCursor(0,1);
+lcd.println("2 times         ");
+// 
+//motor();
+  digitalWrite(cwk,LOW);
+  digitalWrite(acwk,LOW);
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+if(digitalRead(b)==HIGH)
+  {
+   digitalWrite (cwk,HIGH);
+   digitalWrite (acwk,LOW);
+  delay(6000);                                                                                                                       
+  digitalWrite(cwk,LOW);
+  digitalWrite(acwk,LOW);
+ // lcd.setCursor(0,0);
+  //lcd.print("insert");
+  //delay(1000);
+  lcd.clear();
+  lcd.println("     COLLECT          ");
+  lcd.setCursor(0,1);
+  lcd.println("THANK YOU       ");
+ delay(4000);
+ counter();
+
+}
+
+}
+
+
+void counter(){
+  lcd.setCursor(0,0);
+lcd.println("Insert Rs.5 coin");
+lcd.setCursor(0,1);
+lcd.println("2 times         ");
+}
